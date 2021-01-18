@@ -26,11 +26,9 @@ class _RegisterState extends State<Register> {
         ? Loading()
         : Scaffold(
             resizeToAvoidBottomInset: false,
-            backgroundColor: Colors.brown[100],
             appBar: AppBar(
-              backgroundColor: Colors.brown[400],
               elevation: 0,
-              title: Text('Sign up to Coffee Shop'),
+              title: Text('Sign up'),
               actions: <Widget>[
                 FlatButton.icon(
                   icon: Icon(Icons.person),
@@ -40,12 +38,34 @@ class _RegisterState extends State<Register> {
               ],
             ),
             body: Container(
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage('assets/bg_auth.jpg'),
+                        fit: BoxFit.cover)),
                 padding: EdgeInsets.symmetric(vertical: 20, horizontal: 50),
                 child: Form(
                   key: _formKey,
                   child: Column(
                     children: <Widget>[
-                      SizedBox(height: 20),
+                      SizedBox(height: 35),
+                      RichText(
+                        text: TextSpan(children: <TextSpan>[
+                          TextSpan(
+                              text: "Go",
+                              style: TextStyle(
+                                  color: Colors.purple,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 50,
+                                  fontFamily: 'Bebas')),
+                          TextSpan(
+                              text: "Wallpaper",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 50,
+                                  fontFamily: 'Bebas')),
+                        ]),
+                      ),
+                      SizedBox(height: 60),
                       TextFormField(
                         decoration:
                             textInputDecoration.copyWith(hintText: 'Email'),
