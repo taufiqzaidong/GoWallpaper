@@ -7,25 +7,20 @@ class ChangeTheme extends StatelessWidget {
   Widget build(BuildContext context) {
     ThemeChanger _themeChanger = Provider.of<ThemeChanger>(context);
     final theme = Provider.of<ThemeChanger>(context);
-    return new MaterialApp(
+    return MaterialApp(
       theme: theme.getTheme(),
-      home: new Scaffold(
+      home: Scaffold(
         appBar: AppBar(
           centerTitle: true,
           title: Text('Home'),
         ),
-        body: Container(
-          child: Column(
-            children: <Widget>[
-              Center(
-                child: FlatButton(
-                    child: Text('Dark Theme'),
-                    onPressed: () {
-                      _themeChanger.setTheme(ThemeData.dark());
-                      Navigator.pop(context);
-                    }),
-              ),
-              Center(
+        body: Column(
+          children: <Widget>[
+            SizedBox(height: 50),
+            Center(
+              child: Container(
+                width: 300,
+                height: 50,
                 child: FlatButton(
                     child: Text('Light Theme'),
                     onPressed: () {
@@ -33,8 +28,20 @@ class ChangeTheme extends StatelessWidget {
                       Navigator.pop(context);
                     }),
               ),
-            ],
-          ),
+            ),
+            Center(
+              child: Container(
+                width: 300,
+                height: 50,
+                child: FlatButton(
+                    child: Text('Dark Theme'),
+                    onPressed: () {
+                      _themeChanger.setTheme(ThemeData.dark());
+                      Navigator.pop(context);
+                    }),
+              ),
+            ),
+          ],
         ),
       ),
     );

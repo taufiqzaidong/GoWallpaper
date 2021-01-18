@@ -44,7 +44,7 @@ class _HomeState extends State<Home> {
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _currentIndex,
           type: BottomNavigationBarType.fixed,
-          //backgroundColor: Colors.,                                       change bottombar colour
+          //backgroundColor: ,
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
             BottomNavigationBarItem(icon: Icon(Icons.camera), label: 'Camera'),
