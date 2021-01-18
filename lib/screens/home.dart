@@ -3,6 +3,7 @@ import 'package:gowallpaper/bloc/change_theme.dart';
 import 'package:gowallpaper/bloc/theme.dart';
 import 'package:provider/provider.dart';
 import 'package:gowallpaper/widgets/title_appbar.dart';
+import 'package:gowallpaper/services/auth.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -20,6 +21,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     final theme = Provider.of<ThemeChanger>(context);
+    final AuthService _auth = AuthService();
     return MaterialApp(
       theme: theme.getTheme(),
       home: Scaffold(
@@ -27,6 +29,13 @@ class _HomeState extends State<Home> {
           centerTitle: true,
           title: titleAppBar(),
           actions: <Widget>[
+            FlatButton.icon(
+              icon: Icon(Icons.person),
+              label: Text('Logout'),
+              onPressed: () async {
+                await _auth.signOut();
+              },
+            ),
             IconButton(
               icon: Icon(Icons.bedtime),
               onPressed: () {
