@@ -25,8 +25,10 @@ class _RegisterState extends State<Register> {
     return loading
         ? Loading()
         : Scaffold(
-            resizeToAvoidBottomInset: false,
+            resizeToAvoidBottomInset: true,
+            resizeToAvoidBottomPadding: true,
             appBar: AppBar(
+              backgroundColor: Colors.purple[400],
               elevation: 0,
               title: Text('Sign up'),
               actions: <Widget>[
@@ -89,10 +91,10 @@ class _RegisterState extends State<Register> {
                       ),
                       SizedBox(height: 20),
                       RaisedButton(
-                        color: Colors.brown[400],
+                        color: Colors.purple[400],
                         child: Text(
                           'Register',
-                          style: TextStyle(color: Colors.black),
+                          style: TextStyle(color: Colors.white),
                         ),
                         onPressed: () async {
                           setState(() => loading = true);
@@ -110,7 +112,8 @@ class _RegisterState extends State<Register> {
                       ),
                       SizedBox(height: 20),
                       Text(error,
-                          style: TextStyle(color: Colors.red, fontSize: 14))
+                          style:
+                              TextStyle(color: Colors.red[200], fontSize: 14))
                     ],
                   ),
                 )));

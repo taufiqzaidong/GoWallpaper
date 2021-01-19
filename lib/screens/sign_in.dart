@@ -27,6 +27,7 @@ class _SignInState extends State<SignIn> {
         : Scaffold(
             resizeToAvoidBottomInset: false,
             appBar: AppBar(
+              backgroundColor: Colors.purple[400],
               elevation: 0,
               title: Text('Log in'),
               actions: <Widget>[
@@ -89,10 +90,10 @@ class _SignInState extends State<SignIn> {
                       ),
                       SizedBox(height: 20),
                       RaisedButton(
-                        color: Colors.brown[400],
+                        color: Colors.purple[400],
                         child: Text(
                           'Sign in',
-                          style: TextStyle(color: Colors.black),
+                          style: TextStyle(color: Colors.white),
                         ),
                         onPressed: () async {
                           if (_formKey.currentState.validate()) {
@@ -110,7 +111,8 @@ class _SignInState extends State<SignIn> {
                       ),
                       SizedBox(height: 12.0),
                       Text(error,
-                          style: TextStyle(color: Colors.red, fontSize: 14))
+                          style:
+                              TextStyle(color: Colors.red[200], fontSize: 14))
                     ],
                   ),
                 )));
