@@ -26,7 +26,7 @@ class _SignInState extends State<SignIn> {
         ? Loading()
         : Scaffold(
             resizeToAvoidBottomInset: false,
-            appBar: AppBar(
+            /*appBar: AppBar(
               backgroundColor: Colors.purple[400],
               elevation: 0,
               title: Text('Log in'),
@@ -37,7 +37,7 @@ class _SignInState extends State<SignIn> {
                   onPressed: () => widget.toggleView(),
                 )
               ],
-            ),
+            ),*/
             body: Container(
                 decoration: BoxDecoration(
                     image: DecorationImage(
@@ -48,7 +48,7 @@ class _SignInState extends State<SignIn> {
                   key: _formKey,
                   child: Column(
                     children: <Widget>[
-                      SizedBox(height: 35),
+                      SizedBox(height: 100),
                       RichText(
                         text: TextSpan(children: <TextSpan>[
                           TextSpan(
@@ -112,9 +112,39 @@ class _SignInState extends State<SignIn> {
                       SizedBox(height: 12.0),
                       Text(error,
                           style:
-                              TextStyle(color: Colors.red[200], fontSize: 14))
+                              TextStyle(color: Colors.red[200], fontSize: 14)),
+                      _createAccountLabel()
                     ],
                   ),
                 )));
+  }
+
+  Widget _createAccountLabel() {
+    return InkWell(
+      onTap: () => widget.toggleView(),
+      child: Container(
+        margin: EdgeInsets.symmetric(vertical: 20),
+        padding: EdgeInsets.all(15),
+        alignment: Alignment.bottomCenter,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'Don\'t have an account ?',
+              style: TextStyle(
+                  fontSize: 13, fontFamily: 'Bebas', color: Colors.white),
+            ),
+            SizedBox(
+              width: 5,
+            ),
+            Text(
+              'Register',
+              style: TextStyle(
+                  fontSize: 13, fontFamily: 'Bebas', color: Colors.purple[400]),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

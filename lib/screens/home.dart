@@ -21,6 +21,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     final theme = Provider.of<ThemeChanger>(context);
+
     final AuthService _auth = AuthService();
     return MaterialApp(
       theme: theme.getTheme(),

@@ -27,7 +27,7 @@ class _RegisterState extends State<Register> {
         : Scaffold(
             resizeToAvoidBottomInset: true,
             resizeToAvoidBottomPadding: true,
-            appBar: AppBar(
+            /*appBar: AppBar(
               backgroundColor: Colors.purple[400],
               elevation: 0,
               title: Text('Sign up'),
@@ -38,7 +38,7 @@ class _RegisterState extends State<Register> {
                   onPressed: () => widget.toggleView(),
                 )
               ],
-            ),
+            ),*/
             body: Container(
                 decoration: BoxDecoration(
                     image: DecorationImage(
@@ -49,7 +49,7 @@ class _RegisterState extends State<Register> {
                   key: _formKey,
                   child: Column(
                     children: <Widget>[
-                      SizedBox(height: 35),
+                      SizedBox(height: 100),
                       RichText(
                         text: TextSpan(children: <TextSpan>[
                           TextSpan(
@@ -93,7 +93,7 @@ class _RegisterState extends State<Register> {
                       RaisedButton(
                         color: Colors.purple[400],
                         child: Text(
-                          'Register',
+                          'Register Now',
                           style: TextStyle(color: Colors.white),
                         ),
                         onPressed: () async {
@@ -110,12 +110,42 @@ class _RegisterState extends State<Register> {
                           }
                         },
                       ),
-                      SizedBox(height: 20),
+                      SizedBox(height: 12.0),
                       Text(error,
                           style:
-                              TextStyle(color: Colors.red[200], fontSize: 14))
+                              TextStyle(color: Colors.red[200], fontSize: 14)),
+                      _createAccountLabel()
                     ],
                   ),
                 )));
+  }
+
+  Widget _createAccountLabel() {
+    return InkWell(
+      onTap: () => widget.toggleView(),
+      child: Container(
+        margin: EdgeInsets.symmetric(vertical: 20),
+        padding: EdgeInsets.all(15),
+        alignment: Alignment.bottomCenter,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'Already have an account ?',
+              style: TextStyle(
+                  fontSize: 13, fontFamily: 'Bebas', color: Colors.white),
+            ),
+            SizedBox(
+              width: 5,
+            ),
+            Text(
+              'Log In',
+              style: TextStyle(
+                  fontSize: 13, fontFamily: 'Bebas', color: Colors.purple[400]),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
