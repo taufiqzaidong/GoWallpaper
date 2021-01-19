@@ -2,6 +2,7 @@ import 'package:gowallpaper/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gowallpaper/shared/constants.dart';
 import 'package:gowallpaper/shared/loading.dart';
+import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
 class SignIn extends StatefulWidget {
   final Function toggleView;
@@ -22,22 +23,11 @@ class _SignInState extends State<SignIn> {
 
   @override
   Widget build(BuildContext context) {
+    FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
     return loading
         ? Loading()
         : Scaffold(
-            resizeToAvoidBottomInset: false,
-            /*appBar: AppBar(
-              backgroundColor: Colors.purple[400],
-              elevation: 0,
-              title: Text('Log in'),
-              actions: <Widget>[
-                FlatButton.icon(
-                  icon: Icon(Icons.person),
-                  label: Text('Register'),
-                  onPressed: () => widget.toggleView(),
-                )
-              ],
-            ),*/
+            resizeToAvoidBottomPadding: false,
             body: Container(
                 decoration: BoxDecoration(
                     image: DecorationImage(
@@ -66,7 +56,7 @@ class _SignInState extends State<SignIn> {
                                   fontFamily: 'Bebas')),
                         ]),
                       ),
-                      SizedBox(height: 60),
+                      SizedBox(height: 55),
                       TextFormField(
                         decoration:
                             textInputDecoration.copyWith(hintText: 'Email'),

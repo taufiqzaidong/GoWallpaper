@@ -2,6 +2,7 @@ import 'package:gowallpaper/shared/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:gowallpaper/services/auth.dart';
 import 'package:gowallpaper/shared/loading.dart';
+import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
 class Register extends StatefulWidget {
   final Function toggleView;
@@ -22,23 +23,12 @@ class _RegisterState extends State<Register> {
 
   @override
   Widget build(BuildContext context) {
+    FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
     return loading
         ? Loading()
         : Scaffold(
             resizeToAvoidBottomInset: true,
             resizeToAvoidBottomPadding: true,
-            /*appBar: AppBar(
-              backgroundColor: Colors.purple[400],
-              elevation: 0,
-              title: Text('Sign up'),
-              actions: <Widget>[
-                FlatButton.icon(
-                  icon: Icon(Icons.person),
-                  label: Text('Sign in'),
-                  onPressed: () => widget.toggleView(),
-                )
-              ],
-            ),*/
             body: Container(
                 decoration: BoxDecoration(
                     image: DecorationImage(
@@ -67,7 +57,7 @@ class _RegisterState extends State<Register> {
                                   fontFamily: 'Bebas')),
                         ]),
                       ),
-                      SizedBox(height: 60),
+                      SizedBox(height: 55),
                       TextFormField(
                         decoration:
                             textInputDecoration.copyWith(hintText: 'Email'),
@@ -97,8 +87,8 @@ class _RegisterState extends State<Register> {
                           style: TextStyle(color: Colors.white),
                         ),
                         onPressed: () async {
-                          setState(() => loading = true);
                           if (_formKey.currentState.validate()) {
+                            setState(() => loading = true);
                             dynamic result = await _auth
                                 .registerWithEmailAndPassword(email, password);
                             if (result == null) {
