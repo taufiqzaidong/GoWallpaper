@@ -4,6 +4,7 @@ import 'package:gowallpaper/bloc/theme.dart';
 import 'package:provider/provider.dart';
 import 'package:gowallpaper/widgets/title_appbar.dart';
 import 'package:gowallpaper/services/auth.dart';
+import 'package:gowallpaper/screens/profile.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -15,7 +16,7 @@ class _HomeState extends State<Home> {
   final tabs = [
     Center(child: Text('Home')),
     Center(child: Text('Camera')),
-    Center(child: Text('Profile'))
+    Profile()
   ];
 
   @override
