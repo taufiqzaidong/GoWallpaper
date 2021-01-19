@@ -35,12 +35,11 @@ class _ProfileState extends State<Profile> {
             SizedBox(
               height: 15,
             ),
-            Text(
-              "Balance : ",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 20,
-              ),
+            RaisedButton(
+              textColor: Colors.white,
+              color: Colors.purple,
+              child: Text('Wallet'),
+              onPressed: () {},
             ),
             SizedBox(
               height: 15,
@@ -48,7 +47,16 @@ class _ProfileState extends State<Profile> {
             RaisedButton(
               textColor: Colors.white,
               color: Colors.purple,
-              child: Text('Add Location'),
+              child: Text('Location'),
+              onPressed: () {},
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            RaisedButton(
+              textColor: Colors.white,
+              color: Colors.purple,
+              child: Text('Help'),
               onPressed: () {},
             ),
             SizedBox(
