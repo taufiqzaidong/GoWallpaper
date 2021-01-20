@@ -12,8 +12,8 @@ Widget titleAppBar() {
               fontFamily: 'Bebas')),
       TextSpan(
           text: "Wallpaper",
-          style: TextStyle(
-              color: Colors.white, fontSize: 25, fontFamily: 'Bebas')),
+          style:
+              TextStyle(color: Colors.grey, fontSize: 25, fontFamily: 'Bebas')),
     ]),
   );
 }

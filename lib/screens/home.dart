@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:gowallpaper/widgets/title_appbar.dart';
 import 'package:gowallpaper/services/auth.dart';
 import 'package:gowallpaper/screens/profile.dart';
+import 'package:gowallpaper/screens/mainhome.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -13,11 +14,15 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _currentIndex = 0;
-  final tabs = [
-    Center(child: Text('Home')),
-    Center(child: Text('Camera')),
-    Profile()
-  ];
+  final tabs = [MainHome(), Center(child: Text('Camera')), Profile()];
+
+  Color iconColour(ThemeData iconTheme) {
+    if (iconTheme == ThemeData.light()) {
+      return Colors.black;
+    } else {
+      return Colors.white;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,17 +33,20 @@ class _HomeState extends State<Home> {
       theme: theme.getTheme(),
       home: Scaffold(
         appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
           centerTitle: true,
           title: titleAppBar(),
           actions: <Widget>[
             FlatButton.icon(
-              icon: Icon(Icons.person),
-              label: Text('Logout'),
-              onPressed: () async {
-                await _auth.signOut();
-              },
-            ),
+                icon: Icon(Icons.person),
+                label: Text('Logout'),
+                onPressed: () async {
+                  await _auth.signOut();
+                },
+                ),
             IconButton(
+              color: iconColour(theme.getTheme()),
               icon: Icon(Icons.bedtime),
               onPressed: () {
                 Navigator.push(
