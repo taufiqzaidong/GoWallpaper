@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
             '/stream': (context) => Stream(),
             '/home': (context) => Home()
           },
-          initialRoute: '/stream'),
+          initialRoute: '/home'),
     );
   }
 }
